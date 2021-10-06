@@ -4,30 +4,35 @@ import java.util.Random;
 /**
  * @author Sreekanth
  * 
- * Purpose -  To declare a part-time employee and calculate the daily wage of an Employee
+ * Purpose -  To calculate the daily wage of an Employee using Switch-Case
  */
 public class EmployeWageBuilder {
 	
-	public static void main(String[] args) {
+	  // Declaring a constant
+    public static final int IS_FULLTIME = 1;
+    public static final int IS_PARTTIME = 2;
+    public static final int Emp_Rate_PerHr = 20;
+
+    public static void main(String[] args) {
         System.out.println("Welcome To Employee Wage Computation Program");
-        // Declaring a constant
-        int IS_FULLTIME = 1;
-        int IS_PARTTIME = 2;
-        int Emp_Rate_PerHr = 20;
         // Declaring a variables
         int empHrs = 0;
         int empWage = 0;
         /*
-         * Using Math.random method to generate random numbers 0, 1 and 2
+         * Using random method to generate random numbers 0, 1 and 2
          */
         Random random = new Random();
         int empCheck = random.nextInt(3);
-        if (empCheck == IS_FULLTIME)
-            empHrs = 8;
-        else if (empCheck == IS_PARTTIME)
-            empHrs = 4;
-        else
-            empHrs = 0;
+        switch (empCheck) {
+            case IS_FULLTIME: // FullTime Employee
+                empHrs = 8;
+                break;
+            case IS_PARTTIME: // PartTime Employee
+                empHrs = 4;
+                break;
+            default: // Employee is absent
+                empHrs = 0;
+        }
         /*
          * Calculating the daily employee wage of an employee
          */
